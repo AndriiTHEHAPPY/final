@@ -1,17 +1,36 @@
 import pygame
+import os
 
 pygame.mixer.init()
 
-# Загрузка звуковых эффектов (WAV)
-jump_snd = pygame.mixer.Sound("sounds/Jump.wav")
-hit_snd = pygame.mixer.Sound("sounds/attack_hit.mp3")
-meow_snd = pygame.mixer.Sound("sounds/kitten_mew-1.ogg")
-
-# Функция для музыки (OGG)
-def play_bg(game_type):
-    pygame.mixer.music.stop()
-    if game_type == "space":
-        pygame.mixer.music.load("sounds/spacebackground.wav")
+def load_snd(name):
+    # Путь к папке sounds
+    path = os.path.join("sounds", name)
+    if os.path.exists(path):
+        try:
+            return pygame.mixer.Sound(path)
+        except Exception as e:
+            print(f"Ошибка при чтении файла {name}: {e}")
+            return None
     else:
-        pygame.mixer.music.load("sounds/backgroundmusic.ogg")
-    pygame.mixer.music.play(-1) # Бесконечный повтор
+        print(f"ФАЙЛ НЕ НАЙДЕН: {path}")
+        return None
+
+# Загружаем эффекты (ПРОВЕРЬ ЭТИ НАЗВАНИЯ В ПАПКЕ)
+jump_snd = load_snd("jump.wav")
+meow_snd = load_snd("kitten_mew-1.ogg")   # Для смерти кота
+hit_snd = load_snd("attack_hit.mp3")     # Для взрыва в космосе
+repair_snd = load_snd("repair.wav")
+virus_snd = load_snd("virus.mp3")
+
+def play_bg(mode):
+    pygame.mixer.music.stop()
+    try:
+        if mode == "space":
+            pygame.mixer.music.load("sounds/spacebackground.wav")
+        else:
+            pygame.mixer.music.load("sounds/backgroundmusic.ogg")
+        pygame.mixer.music.set_volume(0.3)
+        pygame.mixer.music.play(-1)
+    except Exception as e:
+        print(f"Ошибка фоновой музыки: {e}")
