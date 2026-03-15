@@ -39,7 +39,7 @@ cat_img = get_img("cat", (60, 60))
 sky_bg = get_img("skyforcat", (WIDTH, HEIGHT))
 roof_img = get_img("roof", (WIDTH, 120))
 pipe_img = get_img("chimney", (50, 100))
-house_img = get_img("house", (100, 100))
+house_img = get_img("vorona", (100, 100))
 
 # Космобой
 space_bg = get_img("spacebackground", (WIDTH, HEIGHT))
@@ -57,9 +57,10 @@ mouse_img = get_img("mouse", (S_SIZE, S_SIZE))
 virus_img = get_img("virus", (S_SIZE, S_SIZE))
 
 # Кнопки
-btn_snake = Button(300, 200, 200, 50, "Змейка", GREEN, (0, 150, 0))
-btn_shooter = Button(300, 280, 200, 50, "Космобой", BLUE, (0, 0, 150))
-btn_dino = Button(300, 360, 200, 50, "Кото-Паркур", GRAY, (100, 100, 100))
+# Создаем кнопки с картинками (учитываем расширения с твоего скриншота!)
+btn_snake = Button(300, 200, 220, 60, "Змейка", "images/button_snake.jpg")
+btn_shooter = Button(300, 280, 220, 60, "Космобой", "images/button_spacebattle.png")
+btn_dino = Button(300, 360, 220, 60, "Кото-паркур", "images/button_catparkour.jfif")
 
 state = MENU
 score = 0
