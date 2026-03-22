@@ -13,7 +13,8 @@ BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 
 # Состояния игры
-MENU = "MENU"
-SNAKE = "SNAKE"
-SHOOTER = "SHOOTER"
-DINO = "DINO"
+MENU = "menu"
+SNAKE = "snake"
+SHOOTER = "shooter"
+DINO = "dino"
+SETTINGS = "settings" # НОВОЕ

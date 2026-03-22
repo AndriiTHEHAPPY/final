@@ -22,6 +22,7 @@ meow_snd = load_snd("kitten_mew-1.ogg")   # Для смерти кота
 hit_snd = load_snd("attack_hit.mp3")     # Для взрыва в космосе
 repair_snd = load_snd("repair.wav")
 virus_snd = load_snd("virus.mp3")
+mouse_eat_snd = load_snd("mouse.ogg") # Звук писка мыши
 
 def play_bg(mode):
     pygame.mixer.music.stop()
